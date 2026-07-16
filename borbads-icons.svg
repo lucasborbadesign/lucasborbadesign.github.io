@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Borbads — icon set (Tese system)
+  ────────────────────────────────────────────────────────
+  Grid 24×24 · stroke 1.5 · round caps/joins · stroke="currentColor"
+  Usage (HTML/Astro):
+    <svg class="icon" width="24" height="24"><use href="/borbads-icons.svg#ic-metric"/></svg>
+    .icon{ color: var(--accent); }   /* controls stroke via currentColor */
+  Figma: import this file (each <symbol> imports as a vector group),
+         or copy a single icon's shapes from the showcase HTML.
+  Add a new icon: copy a <symbol> block, change the id, draw on the 24-grid.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+  <symbol id="ic-overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3 4 7.5 12 12l8-4.5Z"/><path d="M4 12 12 16.5 20 12"/><path d="M4 16.5 12 21l8-4.5"/>
+  </symbol>
+
+  <symbol id="ic-problem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 4 21 19H3Z"/><path d="M12 10v4"/><path d="M12 16.5h.01"/>
+  </symbol>
+
+  <symbol id="ic-insight" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.4.9 1 1 1.6h5c.1-.6.4-1.2 1-1.6A6 6 0 0 0 12 3Z"/><path d="M9.5 18.5h5"/><path d="M10.5 21h3"/>
+  </symbol>
+
+  <symbol id="ic-opportunity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 4H4v5"/><path d="M15 4h5v5"/><path d="M20 15v5h-5"/><path d="M4 15v5h5"/>
+  </symbol>
+
+  <symbol id="ic-goal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/>
+  </symbol>
+
+  <symbol id="ic-research" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/>
+  </symbol>
+
+  <symbol id="ic-scope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 8V4h4"/><path d="M16 4h4v4"/><path d="M20 16v4h-4"/><path d="M8 20H4v-4"/>
+  </symbol>
+
+  <symbol id="ic-process" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.2 6h9.6"/><path d="M6.2 8 11 16"/><path d="M17.8 8 13 16"/>
+  </symbol>
+
+  <symbol id="ic-metric" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4v16h16"/><path d="M7.5 15 11 11.5 14 14l5.5-6"/><path d="M19.5 8h-3.5M19.5 8v3.5"/>
+  </symbol>
+
+  <symbol id="ic-funnel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 5h17l-6.5 7.5V20l-4-2v-5.5Z"/>
+  </symbol>
+
+  <symbol id="ic-handoff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.1 11 15.9 7.1"/><path d="M8.1 13 15.9 16.9"/>
+  </symbol>
+
+  <symbol id="ic-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3 13.6 9.2 20 11l-6.4 1.8L12 19l-1.6-6.2L4 11l6.4-1.8Z"/><path d="M18.4 16 19 18l2 .6-2 .6-.6 2-.6-2-2-.6 2-.6Z"/>
+  </symbol>
+
+  <symbol id="ic-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="8" r="3.3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/>
+  </symbol>
+
+  <symbol id="ic-commerce" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 4.5H6l2 11h9.5L19.3 8H7"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/>
+  </symbol>
+
+  <symbol id="ic-strategy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 21V4"/><path d="M6 4.5h11l-3 4 3 4H6"/>
+  </symbol>
+
+  <symbol id="ic-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 7h4.5v4.5C10.5 14 9 15.5 6.5 16"/><path d="M13.5 7H18v4.5C18 14 16.5 15.5 14 16"/>
+  </symbol>
+
+  <!-- Principles (one per guiding principle) -->
+  <symbol id="ic-pr-ecosystem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="2.4"/><circle cx="5" cy="6" r="1.8"/><circle cx="19" cy="6" r="1.8"/><circle cx="12" cy="20.5" r="1.8"/><path d="M6.3 7 10.2 10.4"/><path d="M17.7 7 13.8 10.4"/><path d="M12 14.4v4.3"/>
+  </symbol>
+  <symbol id="ic-pr-results" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="13" r="6.5"/><circle cx="11" cy="13" r="2.4"/><path d="M11 13 20 4"/><path d="M20 4h-4M20 4v4"/>
+  </symbol>
+  <symbol id="ic-pr-empathy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20.5 20.5"/><circle cx="10.5" cy="8.8" r="1.7"/><path d="M7.4 13.6a3.3 3.3 0 0 1 6.2 0"/>
+  </symbol>
+  <symbol id="ic-pr-growth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 21v-7"/><path d="M12 14c0-3-2-5-5-5 0 3 2 5 5 5Z"/><path d="M12 12.5c0-3 2-5 5-5 0 3-2 5-5 5Z"/>
+  </symbol>
+  <symbol id="ic-pr-discovery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 9a7 7 0 0 1 12-2.5"/><path d="M19 15a7 7 0 0 1-12 2.5"/><path d="M17 3v4h-4"/><path d="M7 21v-4h4"/>
+  </symbol>
+  <symbol id="ic-pr-evidence" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 20.5h17"/><path d="M6 20V12.5"/><path d="M11 20V7"/><path d="M16 20V14.5"/><path d="M20 20V10"/>
+  </symbol>
+  <symbol id="ic-pr-future" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.5"/><path d="M15.6 8.4 13 13l-4.6 2.6L11 11Z"/>
+  </symbol>
+  <symbol id="ic-pr-journey" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6.5 5.5h6a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7.5"/><circle cx="5" cy="5.5" r="1.6"/><circle cx="19" cy="17.5" r="1.6"/>
+  </symbol>
+  <symbol id="ic-pr-craft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 19 7 12l7.5-7.5 4 4L11 16Z"/><path d="M7 12l5 5"/><circle cx="14.5" cy="9.5" r="0.9" fill="currentColor" stroke="none"/>
+  </symbol>
+
+</svg>
