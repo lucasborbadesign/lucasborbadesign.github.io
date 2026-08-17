@@ -92,7 +92,8 @@
     el.addEventListener('animationend', drop, { once: true });
     setTimeout(drop, 1600); // backstop if the event never lands
   })();
-</script><header class="case-nav" data-astro-cid-iu2tt25f><div class="wrap navrow" data-astro-cid-iu2tt25f><a href="/#work" class="back" data-astro-cid-iu2tt25f>← Work</a><span class="confidence" data-astro-cid-iu2tt25f>Shared in confidence · do not distribute</span></div></header><main data-astro-cid-iu2tt25f><script>
+</script><header class="case-nav" data-astro-cid-iu2tt25f><div class="wrap navrow" data-astro-cid-iu2tt25f><!-- Home, top. Not `/#work`: that anchor drops you straight into the
+           first spotlight card and the hero never gets seen. --><a href="/" class="back" data-astro-cid-iu2tt25f>← Work</a><span class="confidence" data-astro-cid-iu2tt25f>Shared in confidence · do not distribute</span></div></header><main data-astro-cid-iu2tt25f><script>
     /* Motion layer — mirrors the other case pages. html.motion-ok is added only
        when motion is allowed, so the hidden states apply from the start;
        reduced-motion / no-JS see the final state. One IntersectionObserver
