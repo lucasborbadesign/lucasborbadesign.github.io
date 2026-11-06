@@ -58,7 +58,7 @@ const U = {
   cep: '36770-000', rua: 'Rua das Acácias', num: '120', compl: 'apto 2', cidade: 'Cataguases', uf: 'MG',
   agencia: '0001', conta: '47821-3', smsCode: '482913', mailCode: '305671'
 };
-const STAGES = ['Login', 'Ativação', 'Aumento de limite'];
+const STAGES = ['Cadastro', 'Ativação', 'Aumento de limite'];
 
 /* ---------- masks and validators ---------- */
 const digits = v => String(v).replace(/\D/g, '');
@@ -87,8 +87,8 @@ const STEPS = [
   { id: 'name', dock: 'text', ph: 'Seu nome ou apelido', im: 'text', ask: () => ['Pronto, celular confirmado.', 'Como você quer ser chamado(a)?'], ex: () => U.apelido, val: v => v.trim().length >= 2 || 'Digite pelo menos 2 letras.', save: (v, d) => { d.apelido = v.trim(); } },
   { id: 'cpf', dock: 'num', ph: '000.000.000-00', im: 'numeric', mask: maskCPF, help: 'Só números. A gente formata para você.', ask: d => ['Prazer, ' + d.apelido + '!', 'Qual é o seu CPF?'], ex: (d, n, er) => (er && n === 0) ? '529.982.247-26' : U.cpf, val: v => cpfOk(v) || 'Esse CPF não parece certo. Confira os 11 números.', save: (v, d) => { d.cpf = v; } },
   { id: 'email', dock: 'text', ph: 'nome@email.com', im: 'email', ask: () => ['Qual é o seu e-mail? Também vou te mandar um código lá.'], ex: () => U.email, val: v => /^\S+@\S+\.\S+$/.test(v.trim()) || 'Esse e-mail parece incompleto.', save: (v, d) => { d.email = v.trim(); } },
-  { id: 'emailcode', dock: 'otp', code: U.mailCode, ask: d => ['Mandei um código para ' + d.email + '.', 'Digite aqui para confirmar.'], ex: () => U.mailCode, val: v => v === U.mailCode || 'Código incorreto. Confira o e-mail e tente de novo.', save: () => {}, echo: v => v, card: { title: 'Etapa 1 concluída', sub: 'Login. Você já tem acesso ao app.' } },
-  { id: 'ativar', dock: 'ack', ask: () => ['Login concluído! 🎉', 'Quer ativar a conta agora? Leva uns 2 minutos e libera o Pix.'], echo: () => 'Ativar agora', save: () => {} },
+  { id: 'emailcode', dock: 'otp', code: U.mailCode, ask: d => ['Mandei um código para ' + d.email + '.', 'Digite aqui para confirmar.'], ex: () => U.mailCode, val: v => v === U.mailCode || 'Código incorreto. Confira o e-mail e tente de novo.', save: () => {}, echo: v => v, card: { title: 'Etapa 1 concluída', sub: 'Cadastro. Você já tem acesso ao app.' } },
+  { id: 'ativar', dock: 'ack', ask: () => ['Cadastro concluído! 🎉', 'Quer ativar a conta agora? Leva uns 2 minutos e libera o Pix.'], echo: () => 'Ativar agora', save: () => {} },
   { id: 'nasc', stage: 2, dock: 'num', ph: 'dd/mm/aaaa', im: 'numeric', mask: maskDate, help: 'Dia, mês e ano.', ask: () => ['Vamos lá. Qual é a sua data de nascimento?'], ex: () => U.nasc, val: v => dateOk(v) || 'Confira a data. Ela precisa ser de quem tem 18 anos ou mais.', save: (v, d) => { d.nasc = v; } },
   { id: 'cep', stage: 2, dock: 'address', ask: () => ['Agora o seu endereço. Digite o CEP.'], echo: (v, d) => d.rua + ', ' + d.num + (d.compl ? ', ' + d.compl : '') + ' · ' + d.cidade + '/' + d.uf, save: () => {} },
   { id: 'termos', stage: 2, dock: 'terms', ask: () => ['Para finalizar, é importante que você conheça os nossos **Termos e Condições** e a **Política de Privacidade**.'], echo: () => 'Li e aceito os dois', save: () => {} },
@@ -131,7 +131,7 @@ function splashInner() {
   return '<div class="splash"><div class="wm">Voltz</div>' +
     '<h1>Abra sua conta <em>100% digital</em></h1>' +
     '<p>Pix, pagamento de contas e cartão virtual. Tudo no celular, sem sair de casa.</p>' +
-    '<div class="perks"><span>' + ic('pix') + 'Pix sem limite de envios</span><span>' + ic('pay') + 'Pague contas</span><span>' + ic('card') + 'Cartão virtual</span></div>' +
+    '<div class="perks"><span>' + ic('pix') + 'Envie e receba Pix</span><span>' + ic('pay') + 'Pague contas</span><span>' + ic('card') + 'Cartão virtual</span></div>' +
     '<button class="btn neon block" data-a="start">ABRIR MINHA CONTA</button><button class="btn sec block" data-a="has-account">JÁ TENHO CONTA</button></div>';
 }
 
@@ -195,7 +195,7 @@ function chatInner(s) {
 }
 function activatedInner(s) {
   return '<div class="moment"><div class="ring">' + ic('check') + '</div><h2>Conta ativa, ' + esc(s.data.apelido || U.apelido) + '!</h2><p>Seu Pix já está liberado. Você pode aumentar o seu limite quando quiser.</p>' +
-    '<div class="kv"><div>Agência<b>' + U.agencia + '</b></div><div>Conta<b>' + U.conta + '</b></div><hr><div>Saldo máximo<b>R$ 1.000</b></div><div>Pix por transferência<b>até R$ 500</b></div></div><div class="grow"></div>' +
+    '<div class="kv"><div>Agência<b>' + U.agencia + '</b></div><div>Conta<b>' + U.conta + '</b></div><hr><div>Saldo máximo<b>R$ 1.000</b></div></div><div class="grow"></div>' +
     '<button class="btn neon block" data-a="activated-go">VAMOS LÁ!</button></div>';
 }
 function tilesHTML(items, tour) {
@@ -210,7 +210,7 @@ function homeActions() {
 }
 function limCard(s) {
   const l = s.lim;
-  if (l.up) return '<div class="limcard ok" data-tour="limite"><h5>Limite aumentado para R$ 5.000</h5><p>Seu Pix agora vai até R$ 2.000 por transferência.</p></div>';
+  if (l.up) return '<div class="limcard ok" data-tour="limite"><h5>Limite aumentado para R$ 5.000</h5><p>O novo limite já está valendo.</p></div>';
   const n = l.prog;
   return '<div class="limcard lc2" data-tour="limite"><div><h5>Limite de até R$ 5.000</h5><p>Nome da mãe, documento e selfie</p></div><button class="btn dk" data-a="lim-start">' + (n ? 'CONTINUAR' : 'COMEÇAR') + '</button><div class="segs" role="img" aria-label="' + n + ' de 3 passos">' + [0, 1, 2].map(i => '<i class="' + (i < n ? 'on' : '') + '"></i>').join('') + '</div></div>';
 }
@@ -241,7 +241,7 @@ function pixInner(s) {
 }
 const TOUR = [
   { sel: '[data-tour=saldo]', t: 'Seu saldo, sempre à mão', b: 'Toque em "Ver extrato" para ver tudo que entrou e saiu da conta.' },
-  { sel: '[data-tour=pix]', t: 'Pix a qualquer hora', b: 'Envie, receba e guarde as suas chaves aqui. Sem limite de transferências.' },
+  { sel: '[data-tour=pix]', t: 'Pix a qualquer hora', b: 'Envie, receba e guarde as suas chaves aqui.' },
   { sel: '[data-tour=pagar]', t: 'Pague contas e ganhe crédito', b: 'Pague a fatura da Energisa e outras contas. Ganhe até 10% de crédito em novas faturas.' },
   { sel: '[data-tour=cartao]', t: 'Seu cartão virtual já está pronto', b: 'Use nas compras online. Vale para streaming, apps de transporte e mais.' },
   { sel: '[data-tour=limite]', t: 'Quer mais limite?', b: 'São 3 passos rápidos: nome da mãe, documento e selfie. Dá para parar e continuar depois.' }
@@ -253,7 +253,7 @@ function tourHTML(s) {
 function sheetHTML(s) {
   const sh = s.sheet;
   if (sh.type === 'welcome') return '<div class="scrim"><div class="sheet"><h5>Bem-vindo à sua conta, ' + esc(s.data.apelido || U.apelido) + '! 🎉</h5><p>Antes de começar, separei algumas dicas para facilitar o seu dia a dia aqui. É rapidinho.</p><div class="btns"><button class="btn pri block" data-a="welcome-go">VAMOS LÁ!</button><button class="btn ghost block" data-a="welcome-skip">PULAR DICAS</button></div></div></div>';
-  if (sh.type === 'legal') { const name = sh.i === 0 ? 'Termos e Condições' : 'Política de Privacidade'; return '<div class="scrim"><div class="sheet tall"><h5>' + name + '</h5><div class="legal" tabindex="0" aria-label="Texto de ' + name + '"><p><b>1. Quem somos.</b> A Voltz é a fintech do grupo Energisa. Este texto é fictício e serve só para o protótipo.</p><p><b>2. Seus dados.</b> A gente usa o que você informa para abrir e proteger a sua conta. Você pode pedir a correção a qualquer momento.</p><p><b>3. Seu documento e a selfie.</b> Servem para confirmar que é você. Guardamos com segurança e só usamos para isso.</p><p><b>4. Limites.</b> Contas novas começam com limite de saldo e de Pix. Dá para aumentar depois de enviar o documento.</p><p><b>5. Como a gente protege a sua conta.</b> Cada transação pede a sua senha de 4 números. Se algo fugir do seu costume, a gente pede uma confirmação a mais antes de liberar.</p><p><b>6. Com quem a gente compartilha.</b> Só com quem precisa para a conta funcionar, como o banco parceiro e os órgãos que a lei manda informar. Nunca para propaganda de terceiros.</p><p><b>7. Por quanto tempo a gente guarda.</b> Enquanto a conta estiver ativa e pelo prazo que a lei exigir depois disso. Depois, os dados são apagados ou anonimizados.</p><p><b>8. Seus direitos.</b> Você pode pedir uma cópia dos seus dados, corrigir o que estiver errado ou encerrar a conta, pelo botão de ajuda no app.</p><p><b>9. Mudanças neste texto.</b> Se algo mudar, a gente avisa no app antes de começar a valer.</p><p><b>10. Dúvidas.</b> Fale com a gente pelo app, no botão de ajuda.</p></div><button class="legal-full" data-a="legal-full">Ver o texto completo</button><button class="btn pri block" data-a="legal-ok">LI E ENTENDI</button></div></div>'; }
+  if (sh.type === 'legal') { const name = sh.i === 0 ? 'Termos e Condições' : 'Política de Privacidade'; return '<div class="scrim"><div class="sheet tall"><h5>' + name + '</h5><div class="legal" tabindex="0" aria-label="Texto de ' + name + '"><p><b>1. Quem somos.</b> A Voltz é a fintech do grupo Energisa. Este texto é fictício e serve só para o protótipo.</p><p><b>2. Seus dados.</b> A gente usa o que você informa para abrir e proteger a sua conta. Você pode pedir a correção a qualquer momento.</p><p><b>3. Seu documento e a selfie.</b> Servem para confirmar que é você. Guardamos com segurança e só usamos para isso.</p><p><b>4. Limites.</b> Contas novas começam com limite de saldo. Dá para aumentar depois de enviar o documento.</p><p><b>5. Como a gente protege a sua conta.</b> Cada transação pede a sua senha de 4 números. Se algo fugir do seu costume, a gente pede uma confirmação a mais antes de liberar.</p><p><b>6. Com quem a gente compartilha.</b> Só com quem precisa para a conta funcionar, como o banco parceiro e os órgãos que a lei manda informar. Nunca para propaganda de terceiros.</p><p><b>7. Por quanto tempo a gente guarda.</b> Enquanto a conta estiver ativa e pelo prazo que a lei exigir depois disso. Depois, os dados são apagados ou anonimizados.</p><p><b>8. Seus direitos.</b> Você pode pedir uma cópia dos seus dados, corrigir o que estiver errado ou encerrar a conta, pelo botão de ajuda no app.</p><p><b>9. Mudanças neste texto.</b> Se algo mudar, a gente avisa no app antes de começar a valer.</p><p><b>10. Dúvidas.</b> Fale com a gente pelo app, no botão de ajuda.</p></div><button class="legal-full" data-a="legal-full">Ver o texto completo</button><button class="btn pri block" data-a="legal-ok">LI E ENTENDI</button></div></div>'; }
   if (sh.type === 'exit') return '<div class="scrim"><div class="sheet"><h5>Sair do cadastro?</h5><p>Se você sair agora, as informações que passou serão perdidas.</p><div class="btns"><button class="btn pri block" data-a="exit-stay">CONTINUAR CADASTRO</button><button class="btn sec block" data-a="exit-leave">SAIR</button></div></div></div>';
   if (sh.type === 'mae') return '<div class="scrim"><div class="sheet"><h5>Tudo bem, a gente segue</h5><p>Sem o nome da mãe, vamos confirmar a sua identidade pela data de nascimento e pelo documento.</p><button class="btn pri block" data-a="sheet-close">ENTENDI</button></div></div>';
   return '';
@@ -304,7 +304,7 @@ function limWaitInner(s, o) {
   return abar('Análise', {}) + '<div class="wait" role="status"><div class="spin" aria-hidden="true"></div><h3>Estamos analisando</h3><p>Isso costuma levar poucos minutos. Pode sair do app, a gente avisa quando terminar.</p><span class="pill warn">Em análise</span></div>' + ((o && o.notif) ? notifHTML() : '');
 }
 function limOkInner(s) {
-  return '<div class="moment"><div class="ring">' + ic('check') + '</div><h2>Aprovado!</h2><p>O seu limite agora é de R$ 5.000 e o Pix vai até R$ 2.000 por transferência.</p><div class="kv"><div>Limite de saldo<b>R$ 5.000</b></div><div>Pix por transferência<b>até R$ 2.000</b></div><hr><div>Cartão físico<b>liberado</b></div></div><div class="grow"></div><button class="btn neon block" data-a="lim-done">IR PARA O INÍCIO</button></div>';
+  return '<div class="moment"><div class="ring">' + ic('check') + '</div><h2>Aprovado!</h2><p>O seu limite agora é de R$ 5.000.</p><div class="kv"><div>Limite de saldo<b>R$ 5.000</b></div><hr><div>Cartão físico<b>liberado</b></div></div><div class="grow"></div><button class="btn neon block" data-a="lim-done">IR PARA O INÍCIO</button></div>';
 }
 function limFailInner() {
   return '<div class="moment"><div class="ring" style="border-color:var(--vz-warn-bg);color:var(--vz-warn-bg);box-shadow:none">' + ic('camera') + '</div><h2>Precisamos de uma foto melhor</h2><p>A foto do verso ficou com reflexo e não deu para ler o número. Tire de novo, é rapidinho.</p><div class="kv"><div>O que fazer<b>Sem reflexo</b></div><div>Onde<b>Perto de uma janela</b></div></div><div class="grow"></div><button class="btn pri block">TIRAR DE NOVO</button><button class="btn ghost block">FALAR COM ALGUÉM</button></div>';
