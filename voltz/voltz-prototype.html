@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voltz onboarding prototype</title>
+<meta name="description" content="Interactive Android prototype of the Voltz account opening and in-app onboarding, plus the case screens and artifacts. All data is fictional.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="prototype.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">Voltz<small>onboarding case</small></span>
+    <div class="tabbar" role="tablist" aria-label="Views">
+      <button role="tab" data-tab="proto" aria-selected="true" aria-controls="tab-proto">Prototype</button>
+    </div>
+  </div>
+</header>
+<div class="fict"><div class="wrap"><span>All people, numbers and accounts here are fictional. Figures tagged <b>Illustrative</b> are placeholders, not results.</span></div></div>
+
+<!-- ============ PROTOTYPE ============ -->
+<main>
+<section id="tab-proto" class="panel-tab proto" role="tabpanel">
+  <div class="wrap">
+    <div class="grid">
+      <div class="stagecol">
+        <div class="scalebox"><div class="phone" id="phone" aria-label="Voltz Android prototype"></div></div>
+        <p class="hint">Type in the field, tap the example chip, or press Play to watch the whole flow. Data is fictional.</p>
+      </div>
+      <aside class="side" aria-label="Prototype controls">
+        <div class="card">
+          <h3>Flow</h3>
+          <ol class="flow" id="flow"></ol>
+        </div>
+        <div class="card">
+          <h3>Controls</h3>
+          <div class="ctrls"><button class="pbtn pri" id="btn-play">Play full flow</button><button class="pbtn sec" id="btn-restart">Restart</button></div>
+          <label class="switch"><input type="checkbox" id="sw-err"> Show error states (wrong CPF, wrong code, glare on the document)</label>
+        </div>
+        <div class="card"><p class="note-now" id="note-now"></p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE SCREENS ============ -->
+<!-- ============ CASE ARTIFACTS ============ -->
+</main>
+
+<script src="prototype.js"></script>
+</body>
+</html>
